@@ -40,6 +40,8 @@ var game = {
 
 	// Run on game resources loaded.
 	"loaded" : function () {
+		// Added the player to the pool of objects I could use.
+		// Any object I register with true, I could make multiple instances of it.
 		me.pool.register("player", game.PlayerEntity, true);
 
 		me.state.set(me.state.MENU, new game.TitleScreen());
