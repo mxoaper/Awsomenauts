@@ -15,7 +15,8 @@ game.PlayScreen = me.ScreenObject.extend({
                 // The higher the number 5 is, the closer it will be to the front of the screen
                 me.game.world.addChild(player, 5);
 
-   
+
+   				// Binded my right key
                 me.input.bindKey(me.input.KEY.RIGHT, "right");
 
 		// add our HUD to the game world
