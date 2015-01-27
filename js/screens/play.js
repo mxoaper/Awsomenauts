@@ -8,7 +8,7 @@ game.PlayScreen = me.ScreenObject.extend({
                 // Tells the Level Director to Load Level01
                 me.levelDirector.loadLevel("level01");
 
-                // Pulled an intsance of my player
+                // Pulled an intsance of my players
                 // Where he'll start
                 var player = me.pool.pull("player",0, 420, {});
                 // Added him to the world

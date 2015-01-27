@@ -18,7 +18,8 @@ game.PlayerEntity = me.Entity.extend({
 				}
 			}]);
 
-			this.body.setVelocity(5, 0);
+
+			this.body.setVelocity(5, 20);
 	},
 
 	// Delta is the change in time that's happened
@@ -30,7 +31,7 @@ game.PlayerEntity = me.Entity.extend({
 		}else{
 			this.body.vel.x = 0;
 		}
-		}
+		
 
 		// Tells it to all work
 		this.body.update(delta);
