@@ -18,7 +18,7 @@ game.PlayerEntity = me.Entity.extend({
 				}
 			}]);
 
-
+			// Player's location
 			this.body.setVelocity(5, 20);
 	},
 
