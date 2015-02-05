@@ -20,6 +20,11 @@ game.PlayerEntity = me.Entity.extend({
 
 			// Player's location
 			this.body.setVelocity(5, 20);
+
+			this.renderable.addAnimation("idle", [78]);
+			this.renderable.addAnimation("walk", [117,118,119,120,121,123,124,125],80);
+
+			
 	},
 
 	// Delta is the change in time that's happened
