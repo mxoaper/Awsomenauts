@@ -19,7 +19,7 @@ game.PlayerEntity = me.Entity.extend ({
 		}]);
 
 		this.body.setVelocity(5, 20);
-		// this a lso changes the y velocity of the character
+		// this also changes the y velocity of the character
 		// this is the movement speed of the character
 
 		this.renderable.addAnimation("idle", [78]);
@@ -64,4 +64,91 @@ game.PlayerEntity = me.Entity.extend ({
 		// this is updating the animations on the fly
 		return true;
 	}
+});
+
+game.PlayerBaseEntity = me.Entity.extend ({
+	init: function(x, y, settings) {
+		this._super(me.Entity, "init", [x, y, {
+			image: "tower",
+			width: 100,
+			height: 100,
+			spritewidth: "100",
+			spriteheight: "100",
+
+			getShape: function() {
+				return (new me.Rect(0, 0, 100, 100)).toPolygon();
+			}
+		}]);
+		this.broken = false;
+		// this is saying that the tower has not yet been
+		this.health = 10;
+		// starting energy for tower
+		this.alwaysUpdate = true;
+		// updates the screen whether or not we are not looking at it
+		this.body.onCollision = this.onCollision.bind(this);
+		// if somebody runs into the tower it will be able to collide with it
+
+		this.type = "PlayerBaseEntity";
+		// this is a type you can use to check to see what you are running into
+
+	}, 
+
+	update: function(delta) {
+		if( this.health <= 0) {
+			this.broken =  true;
+			// this means that the character is dead
+	}
+		this.body.update(delta);
+		// updates the code
+
+		this._super(me.Entity, "update", [delta]);
+		return true;
+	},
+		onCollision: function() {
+
+		}
+	
+});
+game.EnemyBaseEntity = me.Entity.extend ({
+	init: function(x, y, settings) {
+		this._super(me.Entity, "init", [x, y, {
+			image: "tower",
+			width: 100,
+			height: 100,
+			spritewidth: "100",
+			spriteheight: "100",
+
+			getShape: function() {
+				return (new me.Rect(0, 0, 100, 100)).toPolygon();
+			}
+}]);
+		this.broken = false;
+		// this is saying that the tower has not yet been
+		this.health = 10;
+		// starting energy for tower
+		this.alwaysUpdate = true;
+		// updates the screen whether or not we are not looking at it
+		this.body.onCollision = this.onCollision.bind(this);
+		// if somebody runs into the tower it will be able to collide with it
+
+		this.type = "EnemyBaseEntity";
+		// this is a type you can use to check to see what you are running into
+
+	}, 
+
+	update: function(delta) {
+		if( this.health <= 0) {
+			this.broken =  true;
+			// this means that the character is dead
+	}
+		this.body.update(delta);
+		// updates the code
+
+		this._super(me.Entity, "update", [delta]);
+		return true;
+	},
+		onCollision: function() {
+
+		}
+	
 });
