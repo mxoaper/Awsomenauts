@@ -106,7 +106,8 @@ game.PlayerBaseEntity = me.Entity.extend ({
 			spriteheight: "100",
 
 			getShape: function() {
-				return (new me.Rect(0, 0, 100, 100)).toPolygon();
+				return (new me.Rect(0, 0, 100, 70)).toPolygon();
+				// this shows the height of the bases
 			}
 }]);
 		this.broken = false;
@@ -156,7 +157,8 @@ game.EnemyBaseEntity = me.Entity.extend ({
 			spriteheight: "100",
 
 			getShape: function() {
-				return (new me.Rect(0, 0, 100, 100)).toPolygon();
+				return (new me.Rect(0, 0, 100, 70)).toPolygon();
+				// this shows the hight of the bases
 			}
 }]);
 		this.broken = false;
