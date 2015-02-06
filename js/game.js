@@ -43,6 +43,13 @@ var game = {
 		// Added the player to the pool of objects I could use.
 		// Any object I register with true, I could make multiple instances of it.
 		me.pool.register("player", game.PlayerEntity, true);
+		me.pool.register("PlayerBase", game.PlayerBaseEntity);
+		me.pool.register("EnemyBase", game.EnemyBaseEntity);
+		// registering the enemy and player base to the pool
+		// the character is being added and connected to the entites file
+		// true says any object you register with true you can make multiple instances of
+
+
 
 		me.state.set(me.state.MENU, new game.TitleScreen());
 		me.state.set(me.state.PLAY, new game.PlayScreen());
