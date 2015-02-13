@@ -17,7 +17,8 @@ game.PlayerEntity = me.Entity.extend ({
 				// rect is what the guy can walk in to
 			}
 		}]);
-
+		this.type = "PlayerEntity";
+		this.health = 20;
 		this.body.setVelocity(7, 20);
 		// this also changes the y velocity of the character
 		// this is the movement speed of the character
@@ -103,6 +104,11 @@ game.PlayerEntity = me.Entity.extend ({
 		// this is updating the animations on the fly
 		return true;
 	},
+
+	looseHealth: function(damage){
+		this.health = this.health - damage;
+		console.log(this.health);
+	}
 
 	collideHandler: function(response) {
 		if(response.b.type === 'EnemyBase'){
@@ -243,7 +249,7 @@ game.EnemyBaseEntity = me.Entity.extend ({
 	},
 		onCollision: function() {
 
-		}, 
+		}, +
 		loseHealth: function() {
 			this.health--;
 		}
@@ -261,15 +267,14 @@ game.EnemyCreep = me.Entity.extend({
 			getShape: function() {
 				return (new me.Rect(0, 0, 32, 64)).toPolygon();
 				// this shows the hight of the base
-s			}
+			}
 		}]);
 
 			this.health = 10;
 			this.alwaysUpdate = true;
 			// A timer for when attacking
 			this.now = new Date() .getTime();
-
-			this.body.setVelocity(3, 20);
+  
 			this.type = "EnemyCreep";
 
 			this.renderable.addAnimation("walk", [3, 4, 5], 80);
@@ -291,7 +296,6 @@ s			}
 				// this is updating the animations on the fly
 				return true;	
 
-			},
 			// Make our base loose a little bit of health everytime it's attacked
 			loseHealth: funtcion(damage) {
 				this.health = this.health - damage;
@@ -302,16 +306,32 @@ s			}
 					this.attacking=true;
 					this.lastAttacking=this.now;
 					this.body.vel.x = 0;
-					// Keeps moving the creep to the right to maintain its position
+
+					if(xdif>0){
+						console.log(xdif)
+					// Keeps moving the creep to the right to maintain its position	
 					this.pos.x = this.pos.x + 1;
+					this.body.vel.x = 0;
+					}
 					// Checks that it has been at least 1 second since the creep hit the base
 					if ((this.now-this.lastHit >= 1000)) {
 						this.lastHit = this.now;
 						// Makes the player base call its looseHealth function and passes it a damage of 1
 						response.b.loseHealth(1);
 					}
-				}
+			}else if (response.b.type==='PlayerEntity'){
+					var xdif = this.pos.x - response.b.pos.x;
+				this.attacking=true;
+					this.lastAttacking=this.now;
+					this.pos.x = this.pos.x + 1;
+					// Checks that it has been at least 1 second since the creep hit something
+					if ((this.now-this.lastHit >= 1000)) {
+						this.lastHit = this.now;
+						// Makes the player base call its looseHealth function and passes it a damage of 1
+						response.b.loseHealth(1);
+					}
 			}
+		}
 
 });
 game.GameManager = Object.extend({
@@ -324,7 +344,7 @@ game.GameManager = Object.extend({
 	update: function() {
 		 this.now = new Date().getTime();
 
-		 if(Math.round(this.now/1000)%10 ===0 && (this.now - this.lastCreep >= 1000)) {
+		 if(Math.round(this.now/1000)%10 ===0 && (this.now - this.lastCreep >= 1000) && xdif>0 ) {
 		 	// checking to see if we have multiples of ten
 		 	// this.now - .. makes sure the spawn isnt repeating
 		 	this.lastCreep = this.now;
