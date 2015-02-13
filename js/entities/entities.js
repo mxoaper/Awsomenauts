@@ -158,6 +158,12 @@ game.PlayerBaseEntity = me.Entity.extend ({
 		this.health = 10;
 		// starting energy for tower
 		this.alwaysUpdate = true;
+		// this.attacking lets us know if the enemy us currently attacking
+		this.attacking=false;
+		// Keeps track of when our creeps last attacked anything
+		this.lastAttacking = new Date() . getTime();
+		// Keep track of the last time our creep hit anything
+		this.lastHit = new Date() . getTime();
 		// updates the screen whether or not we are not looking at it
 		this.body.onCollision = this.onCollision.bind(this);
 		// if somebody runs into the tower it will be able to collide with it
@@ -254,12 +260,14 @@ game.EnemyCreep = me.Entity.extend({
 
 			getShape: function() {
 				return (new me.Rect(0, 0, 32, 64)).toPolygon();
-				// this shows the hight of the bases
-			}
+				// this shows the hight of the base
+s			}
 		}]);
 
 			this.health = 10;
 			this.alwaysUpdate = true;
+			// A timer for when attacking
+			this.now = new Date() .getTime();
 
 			this.body.setVelocity(3, 20);
 			this.type = "EnemyCreep";
@@ -268,8 +276,14 @@ game.EnemyCreep = me.Entity.extend({
 			this.renderable.setCurrentAnimation("walk");
 	},
 			update: function(delta) {
+				// It will refresh every single time
+				this.now = new Date() .getTime();
+
 				this.body.vel.x -= this.body.accel.x * me.timer.tick;
 				// cahnging the drection of the creep
+
+				// Checks for collisions with my player, if there are, it'll passit to our CollideHandler function
+				me.collision.check(this, true, this.collideHandler.bind(this), true);
 				this.body.update(delta);
 
 
@@ -277,6 +291,26 @@ game.EnemyCreep = me.Entity.extend({
 				// this is updating the animations on the fly
 				return true;	
 
+			},
+			// Make our base loose a little bit of health everytime it's attacked
+			loseHealth: funtcion(damage) {
+				this.health = this.health - damage;
+			},
+
+			collideHandler: function(response){
+				if (response.b.type==='PlayerBase') {
+					this.attacking=true;
+					this.lastAttacking=this.now;
+					this.body.vel.x = 0;
+					// Keeps moving the creep to the right to maintain its position
+					this.pos.x = this.pos.x + 1;
+					// Checks that it has been at least 1 second since the creep hit the base
+					if ((this.now-this.lastHit >= 1000)) {
+						this.lastHit = this.now;
+						// Makes the player base call its looseHealth function and passes it a damage of 1
+						response.b.loseHealth(1);
+					}
+				}
 			}
 
 });
