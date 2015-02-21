@@ -1,19 +1,35 @@
-
-/* Game namespace */
 var game = {
 
 	// an object where to store game information
 	data : {
 		// score
-		score : 0
+		score : 0,
+		enemyBaseHealth: 10,
+		playerBaseHealth: 10,
+		enemyCreepHealth: 10,
+		playerHealth: 10,
+		enemyCreepAttack: 1,
+		playerAttack: 1,
+		// orcBaseDamage: 10,
+		// orcBaseHealth: 100,
+		// orcbaseSpped: 3,
+		// orcBaseDefense: 0,
+		playerAttackTimer: 1000,
+		enemyCreepAttackTimer: 1000,
+		playerMoveSpeed: 5,
+		creepMoveSpeed: 5,
+		gameManager: "",
+		player: "",
+		// variable thata will affeect the movement etc of the character
 	},
 	
 	
 	// Run on page load.
 	"onload" : function () {
 	// Initialize the video.
-	// Modified screen resolution for the game
-	if (!me.video.init("screen",  me.video.CANVAS, 1067, 600, true, '1.0')) {
+	if (!me.video.init("screen",  me.video.CANVAS, 1076, 600, true, '1.0')) {
+		// we changed the numbers after canvas because we want the game to fit our screen
+		// this is the basic set up of the game appearance
 		alert("Your browser does not support HTML5 canvas.");
 		return;
 	}
@@ -40,18 +56,15 @@ var game = {
 
 	// Run on game resources loaded.
 	"loaded" : function () {
-		// Added the player to the pool of objects I could use.
-		// Any object I register with true, I could make multiple instances of it.
 		me.pool.register("player", game.PlayerEntity, true);
 		me.pool.register("PlayerBase", game.PlayerBaseEntity);
 		me.pool.register("EnemyBase", game.EnemyBaseEntity);
 		me.pool.register("EnemyCreep", game.EnemyCreep, true);
+		me.pool.register("FriendCreep", game.FriendCreep,true);
 		me.pool.register("GameManager", game.GameManager);
 		// registering the enemy and player base to the pool
 		// the character is being added and connected to the entites file
 		// true says any object you register with true you can make multiple instances of
-
-
 
 		me.state.set(me.state.MENU, new game.TitleScreen());
 		me.state.set(me.state.PLAY, new game.PlayScreen());

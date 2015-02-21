@@ -11,11 +11,11 @@ game.PlayScreen = me.ScreenObject.extend({
                 // Pdulled an intsance of my players
                 // Where he'll start
                 var player = me.pool.pull("player",0, 0, {});
-                me.game.world.addChild(player, 5);
+                 me.game.world.addChild(player, 5);
                 // Added him to the world
                 // The higher the number 5 is, the closer it will be to the front of the screen
-		var gamemanager = me.pool.pull("GameManager", 0, 420, {});
-		me.game.world.addChild(gamemanager, 0);
+				var gamemanager = me.pool.pull("GameManager", 0, 420, {});
+				me.game.world.addChild(gamemanager, 0);
 
                
 
