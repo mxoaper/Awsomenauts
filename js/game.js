@@ -19,7 +19,7 @@ var game = {
 		playerMoveSpeed: 5,
 		creepMoveSpeed: 5,
 		gameManager: "",
-		player: "",
+		player: ""
 		// variable thata will affeect the movement etc of the character
 	},
 	

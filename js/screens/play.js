@@ -5,30 +5,30 @@ game.PlayScreen = me.ScreenObject.extend({
 	onResetEvent: function() {
 		// reset the score
 		game.data.score = 0;
-                // Tells the Level Director to Load Level01
-                me.levelDirector.loadLevel("level01");
 
-                // Pdulled an intsance of my players
-                // Where he'll start
-                var player = me.pool.pull("player",0, 0, {});
-                 me.game.world.addChild(player, 5);
-                // Added him to the world
-                // The higher the number 5 is, the closer it will be to the front of the screen
-				var gamemanager = me.pool.pull("GameManager", 0, 420, {});
-				me.game.world.addChild(gamemanager, 0);
+		me.levelDirector.loadLevel("level01");
+		// this is telling the code what to look at as far as maps
+		// 
+		this.resetPlayer(0, 420);
+		
+		// we are a pulling the player out of the pool to the screen and making it appear on the screen
+		// x and y are where he is starting
+		var gamemanager = me.pool.pull("GameManager", 0, 0, {});
+		me.game.world.addChild(gamemanager, 0);
+		
+		
 
-               
-
-
-   				// Binded my right key
-                me.input.bindKey(me.input.KEY.RIGHT, "right");
-                me.input.bindKey(me.input.KEY.LEFT, "left");
-                me.input.bindKey(me.input.KEY.A, "attack");
-               	me.input.bindKey(me.input.KEY.SPACE, "jump");
+		me.input.bindKey(me.input.KEY.RIGHT, "right");
+		me.input.bindKey(me.input.KEY.LEFT, "left");
+		me.input.bindKey(me.input.KEY.SPACE, "jump");
+		me.input.bindKey(me.input.KEY.A, "attack");
+		// this is loading level 01 from the resources.js file
+		// uppercase and lowercase are really important because it can affect the code since it is case sensitive
 
 		// add our HUD to the game world
 		this.HUD = new game.HUD.Container();
 		me.game.world.addChild(this.HUD);
+		// me.audio.playTrack("what");
 	},
 
 
@@ -38,5 +38,11 @@ game.PlayScreen = me.ScreenObject.extend({
 	onDestroyEvent: function() {
 		// remove the HUD from the game world
 		me.game.world.removeChild(this.HUD);
+	},
+
+	resetPlayer: function(x ,y) {
+		game.data.player = me.pool.pull("player", x, y, {});
+		me.game.world.addChild(game.data.player, 5);
 	}
 });
+// this is where the game is going to start so we have to put different functions in here
