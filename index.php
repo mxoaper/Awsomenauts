@@ -27,16 +27,12 @@
 		<script type="text/javascript" src="js/game.js"></script>
 		<script type="text/javascript" src="js/resources.js"></script>
 
-
 		<script type="text/javascript" src="js/entities/entities.js"></script>
 		<script type="text/javascript" src="js/entities/EnemyBaseEntity.js"></script>
 		<script type="text/javascript" src="js/entities/PlayerBaseEntity.js"></script>
 		<script type="text/javascript" src="js/entities/GameManager.js"></script>
 		<script type="text/javascript" src="js/entities/EnemyCreep.js"></script>
 		<script type="text/javascript" src="js/entities/FriendCreep.js"></script>
-		<script type="text/javascript" src="js/entities/HUD.js"></script>
-
-		
 		<script type="text/javascript" src="js/entities/HUD.js"></script>
 
 		<script type="text/javascript" src="js/screens/title.js"></script>
@@ -70,3 +66,5 @@
 		</script>
 	</body>
 </html>
+<!-- I just moved the code from the other index file to this file so that the template of the melon js file will appear in my php file -->
+<!-- This is the code provided to me from the person who started to make this map template -->
