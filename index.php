@@ -66,5 +66,3 @@
 		</script>
 	</body>
 </html>
-<!-- I just moved the code from the other index file to this file so that the template of the melon js file will appear in my php file -->
-<!-- This is the code provided to me from the person who started to make this map template -->
