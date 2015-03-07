@@ -1,4 +1,3 @@
-
 /* Game namespace */
 var game = {
 
@@ -7,9 +6,9 @@ var game = {
 		// score
 		score : 0,
 		enemyBaseHealth: 1,
-		playerBaseHealth: 10,
+		playerBaseHealth: 1,
 		enemyCreepHealth: 1,
-		playerHealth: 20,
+		playerHealth: 1,
 		enemyCreepAttack: 1,
 		playerAttack: 1,
 		playerAttackTimer: 1000,
@@ -48,6 +47,7 @@ var game = {
 		});
 	}
 	me.save.add({exp: 0, exp1: 0,exp: 2, exp3: 0, exp4: 0});
+
 
 	// Initialize the audio.
 	me.audio.init("mp3,ogg");
