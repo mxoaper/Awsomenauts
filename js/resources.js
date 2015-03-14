@@ -14,6 +14,7 @@ game.resources = [
 	{name: "creep1", type:"image", src: "data/img/brainmonster.png"},
 	{name: "creep2", type:"image", src: "data/img/gloop.png"},
 	{name: "title-screen", type:"image", src: "data/img/title.png"},
+	{name: "exp-screen", type:"image", src: "data/img/loadpic.png"},
 	/* Atlases 
 	 * @example
 	 * {name: "example_tps", type: "tps", src: "data/img/example_tps.json"},
@@ -30,10 +31,10 @@ game.resources = [
 	 * @example
 	 * {name: "example_bgm", type: "audio", src: "data/bgm/"},
 	 */	
-	// {name: "", type: "audio", src: "data/bgm/"},
-	// {name: "", type: "audio", src: "data/bgm/"},
-	// {name: "", type: "audio", src: "data/bgm/"},
-	// {name: "", type: "audio", src: "data/bgm/"},
+	// {name: "what", type: "audio", src: "data/bgm/"},
+	// {name: "blankSpace", type: "audio", src: "data/bgm/"},
+	// {name: "katy1", type: "audio", src: "data/bgm/"},
+	// {name: "miley", type: "audio", src: "data/bgm/"},
 	 
 	/* Sound effects. 
 	 * @example
