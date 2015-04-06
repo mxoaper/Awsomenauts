@@ -4,7 +4,6 @@
    session_regenerate_id(true);
    // session regenerate regenerates the id every time the file is called on
   
-
    // we need to require once to link this file to the database
    // this one line is the path to all our project files
    // this now says that whenever we use the variable path, we are going to insert that part above

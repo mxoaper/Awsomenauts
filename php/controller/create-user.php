@@ -1,6 +1,6 @@
 <?php 
-	require_once(__DIR__ . "/../model/config.php");
-	// in createpost we sanitize by string, but here we sanitize for the email to sanitize the email
+  require_once(__DIR__ . "/../model/config.php");
+  // in createpost we sanitize by string, but here we sanitize for the email to sanitize the email
     $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
 
@@ -11,8 +11,8 @@
 
     $query = $_SESSION["connection"]->query("INSERT INTO users SET "
        . "username = '$username',"
-    	 . "password = '$hashedPassword',"
-    	 . "salt = '$salt',"
+       . "password = '$hashedPassword',"
+       . "salt = '$salt',"
        . "exp = 0, "
        . "exp1 = 0, "
        . "exp2 = 0, "
@@ -26,7 +26,7 @@
      //Need this for Ajax
      echo "true";
   }else {
-  	echo"<p>" . $_SESSION["connection"]->error . "</p>";
+    echo"<p>" . $_SESSION["connection"]->error . "</p>";
   }
 // we are telling the crypt function to use the password and salt together
 
@@ -49,3 +49,4 @@
 // ajax is a way for us to update our database
 
 // we set it so that if you register a new user you can go straight to playing
+

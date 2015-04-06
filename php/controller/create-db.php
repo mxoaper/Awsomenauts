@@ -1,6 +1,7 @@
 <?php
      require_once(__DIR__ . "/../model/config.php");
      //  You are going back to the directory, to be directed to the model file.
+
     $query = $_SESSION["connection"]->query("CREATE TABLE users ("
         . "id int(11) NOT NULL AUTO_INCREMENT,"
         . "username varchar(30) NOT NULL,"
@@ -13,12 +14,7 @@
         . "exp3 int (4),"
         . "exp4 int (4),"
         . "PRIMARY KEY (id))");
-    if($query) {
-        echo "<p> Successfully created table: users</p>";
-    }
-    else {
-        echo "<p>" . $_SESSION["connection"]->error . "</p>";
-    }
+    
      // the reason why we are making them all NOT NULL is because we want them all to put out values
      // we make the user name NOT NULL so there is no blank usernames
      // auto increment sets the id number based on the previous one
@@ -36,3 +32,4 @@
      // since we are adding more than one id we need , 
      // Primary Key will let us select info from these posts, it is the way tables are connected to each other.
      // everything has to be set prior to being put in the table.
+
