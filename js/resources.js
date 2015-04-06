@@ -13,12 +13,13 @@ game.resources = [
 	{name: "tower", type:"image", src: "data/img/tower_round.svg.png"},
 	{name: "creep1", type:"image", src: "data/img/brainmonster.png"},
 	{name: "creep2", type:"image", src: "data/img/gloop.png"},
+	{name: "creep3", type:"image", src: "data/img/elf.png"},
 	{name: "title-screen", type:"image", src: "data/img/title.png"},
 	{name: "exp-screen", type:"image", src: "data/img/loadpic.png"},
 	{name: "gold-screen", type:"image", src: "data/img/spend.png"},
 	{name: "load-screen", type:"image", src: "data/img/loadpic.png"},
 	{name: "new-screen", type:"image", src: "data/img/newpic.png"},
-	/* Atlases type:"image", src: "data/img/spend.png"},
+	/* Atlases 
 	 * @example
 	 * {name: "example_tps", type: "tps", src: "data/img/example_tps.json"},
 	 */
