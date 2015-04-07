@@ -2,23 +2,21 @@ game.resources = [
 
 	/* Graphics. 
 	 * @example
-	 * {name: "example", type:"image", src: "data/img/example.png"},
 	 */
-	{name: "background-tiles", type:"image", src: "data/img/background-tiles.png"},
-	// we are just loading the background tiles to the template 
-	{name: "meta-tiles", type:"image", src: "data/img/meta-tiles.png"},
-	// we are also loading the meta tiles to the template
-	{name: "player", type:"image", src: "data/img/OrcSpear.png"},
-	// we are loading the player image to the template
-	{name: "tower", type:"image", src: "data/img/tower_round.svg.png"},
-	{name: "creep1", type:"image", src: "data/img/brainmonster.png"},
-	{name: "creep2", type:"image", src: "data/img/gloop.png"},
-	{name: "creep3", type:"image", src: "data/img/elf.png"},
-	{name: "title-screen", type:"image", src: "data/img/title.png"},
-	{name: "exp-screen", type:"image", src: "data/img/loadpic.png"},
-	{name: "gold-screen", type:"image", src: "data/img/spend.png"},
-	{name: "load-screen", type:"image", src: "data/img/loadpic.png"},
-	{name: "new-screen", type:"image", src: "data/img/newpic.png"},
+	 {name: "background-tiles", type:"image", src: "data/img/background-tiles.png"},
+	 {name: "wall", type:"image", src: "data/img/wall.jpg"},
+     {name: "meta-tiles", type:"image", src: "data/img/meta-tiles.png"},
+     {name: "player", type:"image", src: "data/img/orcSpear.png"},
+     {name: "tower", type:"image", src: "data/img/tower_round.svg.png"},
+     {name: "creep1", type:"image", src: "data/img/brainmonster.png"},
+     {name: "title-screen", type:"image", src: "data/img/title.png"},
+     {name: "exp-screen", type:"image", src: "data/img/loadpic.png"},
+     {name: "gold-screen", type:"image", src: "data/img/spend.png"},
+     {name: "load-screen", type:"image", src: "data/img/loadpic.png"},
+     {name: "new-screen", type:"image", src: "data/img/newpic.png"},
+     {name: "spear", type:"image", src: "data/img/spear.png"},
+      // this line above, is where we are loading the image or "player" that we are using
+
 	/* Atlases 
 	 * @example
 	 * {name: "example_tps", type: "tps", src: "data/img/example_tps.json"},
@@ -26,24 +24,21 @@ game.resources = [
 		
 	/* Maps. 
 	 * @example
-	 * {name: "example01", type: "tmx", src: "data/map/example01.tmx"},
 	 * {name: "example01", type: "tmx", src: "data/map/example01.json"},
  	 */
- 	{name: "level01", type: "tmx", src: "data/map/test.tmx"},
- 	// this is displaying our full background images
+ 	  {name: "level01", type: "tmx", src: "data/map/test.tmx"},
+     // we use this one because it is under the tmx and that is what we used
+
 	/* Background music. 
+
 	 * @example
 	 * {name: "example_bgm", type: "audio", src: "data/bgm/"},
 	 */	
-	// {name: "what", type: "audio", src: "data/bgm/"},
-	// {name: "blankSpace", type: "audio", src: "data/bgm/"},
-	// {name: "katy1", type: "audio", src: "data/bgm/"},
-	// {name: "miley", type: "audio", src: "data/bgm/"},
 	 
+
+
 	/* Sound effects. 
 	 * @example
 	 * {name: "example_sfx", type: "audio", src: "data/sfx/"}
 	 */
-	{name: "jump", type: "audio", src: "data/sfx/"},
-
 ];
