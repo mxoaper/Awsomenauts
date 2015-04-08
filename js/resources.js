@@ -4,7 +4,6 @@ game.resources = [
 	 * @example
 	 */
 	 {name: "background-tiles", type:"image", src: "data/img/background-tiles.png"},
-	 {name: "wall", type:"image", src: "data/img/wall.jpg"},
      {name: "meta-tiles", type:"image", src: "data/img/meta-tiles.png"},
      {name: "player", type:"image", src: "data/img/orcSpear.png"},
      {name: "tower", type:"image", src: "data/img/tower_round.svg.png"},
@@ -13,7 +12,6 @@ game.resources = [
      {name: "exp-screen", type:"image", src: "data/img/loadpic.png"},
      {name: "gold-screen", type:"image", src: "data/img/spend.png"},
      {name: "load-screen", type:"image", src: "data/img/loadpic.png"},
-     {name: "new-screen", type:"image", src: "data/img/newpic.png"},
      {name: "spear", type:"image", src: "data/img/spear.png"},
       // this line above, is where we are loading the image or "player" that we are using
 
